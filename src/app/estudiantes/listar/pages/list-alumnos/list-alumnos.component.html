@@ -1,0 +1,45 @@
+<div class="table-responsive">
+    <h3 class="text-center text-primary">Listar Alumnos</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Email</th>
+                <th>Tipo Documento</th>
+                <th>Número Documento</th>
+                <th>Curso</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let alumnos of listAlumnos">
+              
+              <td>{{alumnos.nombre}}</td>
+              <td>{{alumnos.apellido}}</td>
+              <td>{{alumnos.telefono}}</td>
+              <td>{{alumnos.direccion}}</td>
+              <td>{{alumnos.email}}</td>
+              <td>{{alumnos.tipo_documento.nombre}}</td>
+              <td>{{alumnos.numero_documento}}</td>
+              <td>{{alumnos.curso.nombre}}</td>
+              <td>{{alumnos.activo == '1' ? 'Activo' : 'Inactivo'}}</td>
+              
+              <td >
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Acciones
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="editarAlumno(alumnos.id)">Editar</a></li>
+                    <li><a class="dropdown-item text-danger" (click)="cambiarEstado(alumnos.id, alumnos.activo)">Cambiar estado</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+    </table>
+</div>

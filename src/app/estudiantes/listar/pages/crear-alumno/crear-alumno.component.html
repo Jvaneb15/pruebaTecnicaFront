@@ -1,0 +1,67 @@
+<div class="container">
+    <h3 class="text-center text-primary">Crear Alumno</h3>
+    <form [formGroup]="form">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre" >
+                    </div>
+
+                    <div class="col">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" class="form-control" formControlName="apellido" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="telefono">Tipo Documento</label>
+                        <select class="form-control" formControlName="id_tipo_documento" >
+                            <option *ngFor="let item of tipoDocumentos" value="{{item.id}}">{{item.nombre}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label for="numero_documento">Número Documento</label>
+                        <input type="text" class="form-control" formControlName="numero_documento" >
+                    </div>                    
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" class="form-control" formControlName="direccion" >
+                    </div>
+
+                    <div class="col">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control" formControlName="telefono" >
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" formControlName="email" >
+                    </div>
+
+                    <div class="col">
+                        <label for="id_curso">Curso</label>
+                        <select class="form-control" formControlName="id_curso" >
+                            <option *ngFor="let item of cursos" value="{{item.id}}">{{item.nombre}}</option>
+                        </select>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col">
+                        <button type="button" (click)="crearAlumno()" class="btn btn-primary">Crear Alumno</button>
+                        <button type="button" class="align-self-start btn btn-secondary" routerLink="/estudiantes/listar/list">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </form>
+</div>
