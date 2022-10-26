@@ -44,7 +44,8 @@ export class ListAlumnosComponent implements OnInit {
       confirmButtonText: 'Cambiar',
       reverseButtons: true
     }).then((res: any) => {
-      if( res ) {
+      
+      if( res.isConfirmed ) {
         this.svc.cambiarEstado(data).subscribe((res: any) => {
           Swal.fire({
             title: 'Éxito',
